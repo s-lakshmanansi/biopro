@@ -1,1 +1,35 @@
-# jigsaw project
+#Created: 7/14/17
+#Updated: 7/14/17
+#jigsaw project
+
+f = open("/share/data/day5/puzzle.txt")
+req = ''.join(f.readlines()).replace(',', '').split()
+#print req
+res = ""
+
+i = 0
+while(i < 1):
+	key = req[i][11:]
+	j = 0
+	while(j < len(req)):
+		index = req[j].find(key)
+		if (index != -1):
+			slice = req[j][index + len(key):]
+			print slice
+			'''if (req[i] != req[j]):
+				req[i] += slice
+				req[j] = '''
+		j += 1
+	i += 1
+
+
+
+
+
+'''
+for e in line:
+	f = e.split()
+	for w in f:
+		x = w[:-1]
+		#print x
+'''
