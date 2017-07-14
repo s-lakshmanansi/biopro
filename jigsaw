@@ -2,34 +2,75 @@
 #Updated: 7/14/17
 #jigsaw project
 
+'''
 f = open("/share/data/day5/puzzle.txt")
 req = ''.join(f.readlines()).replace(',', '').split()
 #print req
 res = ""
-
-i = 0
-while(i < 1):
-	key = req[i][11:]
-	j = 0
-	while(j < len(req)):
-		index = req[j].find(key)
-		if (index != -1):
-			slice = req[j][index + len(key):]
-			print slice
-			'''if (req[i] != req[j]):
-				req[i] += slice
-				req[j] = '''
-		j += 1
-	i += 1
-
-
-
-
+'''
 
 '''
-for e in line:
-	f = e.split()
-	for w in f:
-		x = w[:-1]
-		#print x
+1. take the last 4 characters of the first word
+2. recursively discover new search keys until there are no more matches
+3. add the first match to result string
+4. repeat 1-3 with the result string instead of the first word
+5. stop when no more letters to be used as a key
+6. repeat going forward instead of backwards
 '''
+
+
+
+#F O R W A R D
+test = ["ABC", "BCD", "CDE", "DEF", "ZAB", "YZA", "XYZ", "JXY", "IJX"]
+res = test[0]
+key = res[0:2]
+keyRef = 0
+
+#when key is = "STOP", end loop
+
+while (key != "STOP"):
+	FOUND = 0
+        for seq in reversed(test):
+		if (seq != test[keyRef]):
+                        index = seq.find(key)
+			if (seq.startswith(key)):
+                                key = "STOP"
+				break
+                        if (index != -1):
+				FOUND += 1
+                                print "FOUND: " + seq + " || " + key
+                                res = seq[0] + res
+	key = res[0:2]
+	if (FOUND == 0):
+		key = "STOP"
+print res
+
+
+
+#R E V E R S E
+res2 = test[0]
+key = res2[-2:]
+keyRef = 0
+
+#when key is = "STOP", end loop
+
+while (key != "STOP"):
+	getNext = True
+	for seq in test:
+		if (seq != test[keyRef]):
+			index = seq.find(key)
+			if (seq.endswith(key)):
+                                getNext = False
+                                key = "STOP"
+				break
+			if (index != -1):
+                       		print "FOUND: " + seq + " || " + key
+                        	res2 += seq[-1]
+	if (getNext):
+		key = res2[-2:]
+		keyRef += 1
+print res2
+
+print "COMBINED:"
+print res + res2[3:]
+
