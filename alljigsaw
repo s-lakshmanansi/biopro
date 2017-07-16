@@ -1,0 +1,53 @@
+#Created: 7/14/17
+#Updated: 7/16/17
+#jigsaw project
+#Universal version
+
+def find_str(full, sub):
+    index = 0
+    sub_index = 0
+    position = -1
+    for ch_i,ch_f in enumerate(full) :
+        if ch_f.lower() != sub[sub_index].lower():
+            position = -1
+            sub_index = 0
+        if ch_f.lower() == sub[sub_index].lower():
+            if sub_index == 0 :
+                position = ch_i
+
+            if (len(sub) - 1) <= sub_index :
+                break
+            else:
+                sub_index += 1
+
+    return position
+
+
+
+
+test = ["ABC", "ABCD", "CDEF", "DEFG", "ZAB", "YZA", "XYZ", "JXY", "IJX"]
+
+i=2
+t=""
+t=t + test[0]
+key=t[(-i):]
+for j in range(0,len(test)):
+    word=test[j]
+    if key in test[j]:
+        if (test[j].endswith(key)):
+            print""
+        else:
+            t=t+word[find_str(word, key)+i:len(word)]
+            key=t[(-i):]
+            
+print t
+key=t[0:i]
+for j in range(0,len(test)):
+    word=test[j]
+    if key in test[j]:
+        if (test[j].startswith(key)):
+            print""
+        else:
+            t=word[0:find_str(word, key)]+t
+            key=t[0:i]
+print t
