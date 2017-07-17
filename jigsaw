@@ -2,14 +2,9 @@
 #Updated: 7/14/17
 #jigsaw project
 
-'''
 f = open("/share/data/day5/puzzle.txt")
 req = ''.join(f.readlines()).replace(',', '').split()
-#print req
-res = ""
-'''
 
-'''
 1. take the last 4 characters of the first word
 2. recursively discover new search keys until there are no more matches
 3. add the first match to result string

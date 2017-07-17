@@ -1,0 +1,24 @@
+#Created: 7/14/17
+#Updated: 7/14/17
+#jigsaw project
+
+
+     {"n": "I", "c": ["AUU", "AUC", "AUA"]},
+        {"n": "M", "c":  ["AUG"]}, #start codon
+        {"n": "V", "c": ["GUU", "GUC", "GUA", "GUG"]},
+        {"n": "S", "c": ["UCU", "UCC", "UCA", "UCG", "AGU", "AGC"]},
+        {"n": "P", "c": ["CCU", "CCC", "CCA", "CCG"]},
+        {"n": "T", "c": ["ACU", "ACC", "ACA", "ACG"]},
+        {"n": "A", "c": ["GCU", "GCC", "GCA", "GCG"]},
+        {"n": "Y", "c": ["UAU", "UAC"]},
+        {"n": "*", "c": ["UAA", "UAG", "UGA"]}, #stop codon
+        {"n": "H", "c": ["CAU", "CAC"]},
+        {"n": "Q", "c": ["CAA", "CAG"]},
+        {"n": "N", "c": ["AAU", "AAC"]},
+        {"n": "K", "c": ["AAA", "AAG"]},
+        {"n": "D", "c": ["GAU", "GAC"]},
+        {"n": "E", "c": ["GAA", "GAG"]},
+        {"n": "C", "c": ["UGU", "UGC"]},
+        {"n": "W", "c": ["UGG"]},
+        {"n": "R", "c": ["CGU", "CGC", "CGA", "CGG", "AGA", "AGG"]},
+        {"n": "G", "c": ["GGU", "GGC", "Ga

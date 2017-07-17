@@ -22,32 +22,24 @@ def find_str(full, sub):
 
     return position
 
-
-
-
-test = ["ABC", "ABCD", "CDEF", "DEFG", "ZAB", "YZA", "XYZ", "JXY", "IJX"]
-
-i=2
-t=""
-t=t + test[0]
-key=t[(-i):]
-for j in range(0,len(test)):
-    word=test[j]
-    if key in test[j]:
-        if (test[j].endswith(key)):
-            print""
-        else:
-            t=t+word[find_str(word, key)+i:len(word)]
-            key=t[(-i):]
+def jigsaw(i, input):
+	t=""
+	t=t + input[0]
+	key=t[(-i):]
+	for j in range(0,len(input)):
+    		word=input[j]
+   		if key in input[j] and input[j].endswith(key) == False:
+           		t=t+word[find_str(word, key)+i:len(word)]
+            		key=t[(-i):]
             
-print t
-key=t[0:i]
-for j in range(0,len(test)):
-    word=test[j]
-    if key in test[j]:
-        if (test[j].startswith(key)):
-            print""
-        else:
-            t=word[0:find_str(word, key)]+t
-            key=t[0:i]
-print t
+	#print t
+	key=t[0:i]
+	for j in range(0,len(input)):
+   		word=input[j]
+  	  	if key in input[j] and input[j].startswith(key) == False:
+           		t=word[0:find_str(word, key)]+t
+            		key=t[0:i]
+	return t
+
+
+print jigsaw(2, ["ABC", "ABCD", "CDEF", "DEFG", "ZAB", "YZA", "XYZ", "JXY", "IJX"])
