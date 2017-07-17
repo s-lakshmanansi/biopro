@@ -1,0 +1,83 @@
+#Created: 7/14/17
+#Updated: 7/16/17
+#jigsaw project
+#Universal version
+
+def find_str(full, sub):
+    index = 0
+    sub_index = 0
+    position = -1
+    for ch_i,ch_f in enumerate(full) :
+        if ch_f.lower() != sub[sub_index].lower():
+            position = -1
+            sub_index = 0
+        if ch_f.lower() == sub[sub_index].lower():
+            if sub_index == 0 :
+                position = ch_i
+
+            if (len(sub) - 1) <= sub_index :
+                break
+            else:
+                sub_index += 1
+    return position
+
+def jigsaw(i, input):
+	t=""
+	t=t + input[0]
+	key=t[(-i):]
+	for j in range(0,len(input)):
+    		word=input[j]
+   		if key in input[j] and input[j].endswith(key) == False:
+           		t=t+word[find_str(word, key)+i:len(word)]
+            		key=t[(-i):]
+            
+	#print t
+	key=t[0:i]
+	for j in range(0,len(input)):
+   		word=input[j]
+  	  	if key in input[j] and input[j].startswith(key) == False:
+           		t=word[0:find_str(word, key)]+t
+            		key=t[0:i]
+	return t
+
+print "     ______   ______    ____    ________    ______   __    __"
+print "    // ____) // ____)  //   \   ||  __  \  // ____) || |  || |"
+print "    || |     || |__   //  __ \  || |_|| | // /      || |__|| |"
+print "    || |___  || ___) ||  /_\\\\ | || _  __/ || |      ||  __   |"
+print "    \\\\__   \\ || |    ||  ___  | || |\\ \\   || |      || |  || |"
+print "    ____|| | || |___ || |   | | || |\\\\ \\  \\\\ \____  || |  || |"
+print "   ((______/ \\\\_____)||_|   |_| ||_| \\\\_\\  \\\\_____) ||_|  ||_|" 
+print ""
+
+print ""
+
+FILE = raw_input("File Source: ")
+f = open(FILE)
+req = f.readlines()
+
+KEY_SIZE = int(raw_input("Key Size: "))
+res = jigsaw(KEY_SIZE, req)
+
+print ""
+print "`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`"
+print "    `'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`"
+print "\033[1m" + res + "\033[0;0m"
+print "`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`"
+print "    `'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`"
+print ""
+
+fails = 0
+successes = 0
+for term in req:
+	if term in res == False:
+		fails += 1
+	else:
+		successes += 1
+		
+print "F A I L U R E S   : ", fails
+print "S U C C E S S E S : ", successes
+print ""
+
+#TEST
+#print jigsaw(2, ["ABC", "ABCD", "CDEF", "DEFG", "ZAB", "YZA", "XYZ", "JXY", "IJX"])
+
