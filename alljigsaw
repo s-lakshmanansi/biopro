@@ -19,7 +19,6 @@ def find_str(full, sub):
                 break
             else:
                 sub_index += 1
-
     return position
 
 def jigsaw(i, input):
@@ -44,14 +43,24 @@ def jigsaw(i, input):
 f = open("/share/data/day5/puzzle.txt")
 req = ''.join(f.readlines()).replace(',', '').split()
 
+print "     ______   ______    ____    ________    ______   __    __"
+print "    // ____) // ____)  //   \   ||  __  \  // ____) || |  || |"
+print "    || |     || |__   //  __ \  || |_|| | // /      || |__|| |"
+print "    || |___  || ___) ||  /_\\\\ | || _  __/ || |      ||  __   |"
+print "    \\\\__   \\ || |    ||  ___  | || |\\ \\   || |      || |  || |"
+print "    ____|| | || |___ || |   | | || |\\\\ \\  \\\\ \____  || |  || |"
+print "   ((______/ \\\\_____)||_|   |_| ||_| \\\\_\\  \\\\_____) ||_|  ||_|" 
 print ""
-KEY_SIZE = int(raw_input("Input search term size: "))
 
 print ""
-print "-----======:::::::::::::======------"
-print jigsaw(KEY_SIZE, req)
-print "-----======:::::::::::::======------"
+KEY_SIZE = int(raw_input("Key Size: "))
+
 print ""
+print "`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`"
+print "    `'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`"
+print jigsaw(KEY_SIZE, req)
+print "`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`"
+print "    `'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`"
 
 #print jigsaw(2, ["ABC", "ABCD", "CDEF", "DEFG", "ZAB", "YZA", "XYZ", "JXY", "IJX"])
 
