@@ -41,5 +41,17 @@ def jigsaw(i, input):
             		key=t[0:i]
 	return t
 
+f = open("/share/data/day5/puzzle.txt")
+req = ''.join(f.readlines()).replace(',', '').split()
 
-print jigsaw(2, ["ABC", "ABCD", "CDEF", "DEFG", "ZAB", "YZA", "XYZ", "JXY", "IJX"])
+print ""
+KEY_SIZE = int(raw_input("Input search term size: "))
+
+print ""
+print "-----======:::::::::::::======------"
+print jigsaw(KEY_SIZE, req)
+print "-----======:::::::::::::======------"
+print ""
+
+#print jigsaw(2, ["ABC", "ABCD", "CDEF", "DEFG", "ZAB", "YZA", "XYZ", "JXY", "IJX"])
+
