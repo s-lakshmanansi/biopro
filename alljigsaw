@@ -40,9 +40,6 @@ def jigsaw(i, input):
             		key=t[0:i]
 	return t
 
-f = open("/share/data/day5/puzzle.txt")
-req = ''.join(f.readlines()).replace(',', '').split()
-
 print "     ______   ______    ____    ________    ______   __    __"
 print "    // ____) // ____)  //   \   ||  __  \  // ____) || |  || |"
 print "    || |     || |__   //  __ \  || |_|| | // /      || |__|| |"
@@ -53,14 +50,20 @@ print "   ((______/ \\\\_____)||_|   |_| ||_| \\\\_\\  \\\\_____) ||_|  ||_|"
 print ""
 
 print ""
+
+FILE = raw_input("File Source: ")
+f = open(FILE)
+req = ''.join(f.readlines()).replace(',', '').split()
+
 KEY_SIZE = int(raw_input("Key Size: "))
 
 print ""
 print "`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`"
 print "    `'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`"
-print jigsaw(KEY_SIZE, req)
+print "\033[1m" + jigsaw(KEY_SIZE, req) + "\033[0;0m"
 print "`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`"
 print "    `'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`'~.,.~'`"
+print ""
 
 #print jigsaw(2, ["ABC", "ABCD", "CDEF", "DEFG", "ZAB", "YZA", "XYZ", "JXY", "IJX"])
 
